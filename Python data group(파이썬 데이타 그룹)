@@ -1,0 +1,309 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyM+RzkuRGY69u+mruwDFcdM",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ez0130/CS50-intro-course/blob/master/Python%20data%20group(%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EB%8D%B0%EC%9D%B4%ED%83%80%20%EA%B7%B8%EB%A3%B9)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "X0EtBIqOYAtK"
+      },
+      "outputs": [],
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "gjTCZYN3uJL3"
+      },
+      "source": [
+        "파이썬의 4가지 데이터 그룹\n",
+        "\n",
+        "- **리스트(List)**: 요소에 순서가 있고 인덱스로 수정 가능하며 요소 중복 가능\n",
+        "- **튜플(Tuple)**: 요소에 순서가 있고 인덱스로 수정 불가하며 요소 중복 가능\n",
+        "- **셋/집합(Set)**: 요소에 순서가 없어서 인덱스화 되지 않고 요소 중복 불가\n",
+        "- **딕셔너리/사전(Dictionary**): 요소에 순서가 있고 (파이썬3.7부터) 인덱스로 수정 가능. 요소는 Key-Value 쌍으로 이루어지고 증복 불가"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##리스트, 튜플, 셋, 딕셔너리의 기본 구조\n",
+        "####리스트는 [], 튜플은 (), 셋트는 {}, 딕셔너리는 {:}의 구조\n"
+      ],
+      "metadata": {
+        "id": "usjYveNrYLcE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "EO2vuwd0NdQb",
+        "outputId": "06606afc-bcce-4a31-84b5-6a9fcd8505b1",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "L = [1,2,3,4]\n",
+        "T = (1,2,3,4)\n",
+        "S = {1,2,3,4}\n",
+        "D = {'1':2, '3':4}\n",
+        "\n",
+        "print(type(L))\n",
+        "print(type(T))\n",
+        "print(type(S))\n",
+        "print(type(D))"
+      ],
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'list'>\n",
+            "<class 'tuple'>\n",
+            "<class 'set'>\n",
+            "<class 'dict'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### 리스트와 튜플은 요소 중복 가능, 셋은 요소 중복 불가하며 딕셔너리에 키는 중복 불가"
+      ],
+      "metadata": {
+        "id": "PiFmSKyyYhmL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "JtTczbsQKESV",
+        "outputId": "9d9a83e4-f4f4-41fa-915a-9b0a98d19aad",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "numbers = [2, 2, 3, 3, 5, 4]\n",
+        "names = ['가영','가영','나영','나영','라영','다영']\n",
+        "namesAndNumbers = {'가영':2, '가영':3, '나영':3, '라영':4}\n",
+        "\n",
+        "print(list(numbers)) \n",
+        "print(tuple(numbers)) \n",
+        "print(set(numbers))\n",
+        "\n",
+        "\n",
+        "print(list(names)) \n",
+        "print(tuple(names)) \n",
+        "print(set(names))\n",
+        "print(namesAndNumbers)"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[2, 2, 3, 3, 5, 4]\n",
+            "(2, 2, 3, 3, 5, 4)\n",
+            "{2, 3, 4, 5}\n",
+            "['가영', '가영', '나영', '나영', '라영', '다영']\n",
+            "('가영', '가영', '나영', '나영', '라영', '다영')\n",
+            "{'라영', '가영', '나영', '다영'}\n",
+            "{'가영': 3, '나영': 3, '라영': 4}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### 리스트는 요소 변경 가능, 튜플과 세트는 불가"
+      ],
+      "metadata": {
+        "id": "DWqvP1NUY9qt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lvRbe51dX-po",
+        "outputId": "3eaa4da2-9ed4-4f6b-d1d6-807b190f738a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "#리스트의 요소 변경\n",
+        "ABC = [\"Apple\", \"Blue\", \"Cat\"]\n",
+        "print(type(ABC))\n",
+        "print(ABC[0])\n",
+        "ABC[0]=\"Aloha\"\n",
+        "print(ABC)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'list'>\n",
+            "Apple\n",
+            "['Aloha', 'Blue', 'Cat']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nmX5K3HHYLLe",
+        "outputId": "edfc13a6-00f3-404f-ba21-2be5a0ad4a94",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 264
+        }
+      },
+      "source": [
+        "#튜플의 요소 변경\n",
+        "ABC = (\"Apple\", \"Blue\", \"Cat\")\n",
+        "print(type(ABC))\n",
+        "print(ABC[0])\n",
+        "ABC[0]=\"Aloha\"\n",
+        "print(ABC)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'tuple'>\n",
+            "Apple\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-9-39c91044b650>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtype\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m \u001b[0mABC\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"Aloha\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: 'tuple' object does not support item assignment"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "mtF6oXM1YaAT",
+        "outputId": "dc86ebd2-5932-43f1-8d63-0efccebbf3f7",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 245
+        }
+      },
+      "source": [
+        "#셋의 요소 변경\n",
+        "ABC = {\"Apple\", \"Blue\", \"Cat\"}\n",
+        "print(type(ABC))\n",
+        "print(ABC[0])\n",
+        "print(ABC)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<class 'set'>\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-10-ebbd7f9fc83f>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mABC\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m{\u001b[0m\u001b[0;34m\"Apple\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Blue\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Cat\"\u001b[0m\u001b[0;34m}\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtype\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      5\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mABC\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: 'set' object is not subscriptable"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### 튜플의 인덱스 사용 응용"
+      ],
+      "metadata": {
+        "id": "rrLUIK7KZHub"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "lBex2Dp1WOJT",
+        "outputId": "6fb52481-f937-4b4c-c745-c3e0c4caab9e",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "source": [
+        "#튜플응용\n",
+        "ABC = (\"Apple\", \"Blue\", \"Cat\")\n",
+        "\n",
+        "a, b, c = ABC\n",
+        "print(a,b,c)\n",
+        "\n",
+        "(a,b,c) = (c,a,c)\n",
+        "print(a,b,c)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Apple Blue Cat\n",
+            "Cat Apple Cat\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
